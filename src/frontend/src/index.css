@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark-mode social app palette */
+    --background: 0.1 0.018 265;
+    --foreground: 0.95 0.01 265;
+    --card: 0.14 0.022 265;
+    --card-foreground: 0.95 0.01 265;
+    --popover: 0.16 0.022 265;
+    --popover-foreground: 0.95 0.01 265;
+    --primary: 0.65 0.28 285;
+    --primary-foreground: 0.98 0.005 285;
+    --secondary: 0.2 0.025 265;
+    --secondary-foreground: 0.85 0.012 265;
+    --muted: 0.22 0.02 265;
+    --muted-foreground: 0.6 0.015 265;
+    --accent: 0.7 0.2 355;
+    --accent-foreground: 0.98 0.005 355;
+    --destructive: 0.62 0.22 22;
+    --destructive-foreground: 0.98 0.005 22;
+    --border: 0.24 0.022 265;
+    --input: 0.2 0.022 265;
+    --ring: 0.65 0.28 285;
+    --radius: 0.75rem;
+    --chart-1: 0.65 0.28 285;
+    --chart-2: 0.7 0.2 355;
+    --chart-3: 0.72 0.2 160;
+    --chart-4: 0.72 0.18 55;
+    --chart-5: 0.68 0.22 200;
+    /* Social-specific tokens */
+    --like-active: 0.65 0.25 15;
+    --nav-height: 64px;
+    --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    color-scheme: dark;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    overscroll-behavior-y: contain;
+  }
+  /* iOS safe areas */
+  .safe-bottom {
+    padding-bottom: calc(var(--nav-height) + var(--safe-area-bottom));
+  }
+  .nav-safe {
+    padding-bottom: var(--safe-area-bottom);
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .touch-callout-none {
+    -webkit-touch-callout: none;
+  }
+  .gradient-brand {
+    background: linear-gradient(
+      135deg,
+      oklch(0.65 0.28 285),
+      oklch(0.7 0.2 355)
+    );
+  }
+  .text-gradient-brand {
+    background: linear-gradient(
+      135deg,
+      oklch(0.75 0.25 285),
+      oklch(0.78 0.18 355)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .glass {
+    background: oklch(0.14 0.022 265 / 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
